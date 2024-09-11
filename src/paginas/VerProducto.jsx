@@ -71,7 +71,7 @@ export const VerProducto = () => {
         onClick={(e) => handleBack(e)}
         draggable="false"
         onContextMenu={(e) => e.preventDefault()}
-        ><img src="../../public/Volver.png" alt="" className="mr-2" style={{ width: "14px", height: "12px" }} loading="lazy"/>Volver
+        ><img src="/Volver.png" alt="" className="mr-2" style={{ width: "14px", height: "12px" }} loading="lazy"/>Volver
     </Link>
 
     <div className="grid grid-cols-1 mb-12 lg:min-w-[928px] lg:mb-28 md:mb-20 md:grid md:grid-cols-[2fr_1fr] lg:grid-cols-[3fr_1fr] mt-20 ver-producto lg:w-6/12 md:px-4 md:mr-0 "
@@ -108,7 +108,7 @@ export const VerProducto = () => {
             <div className="flex flex-col mt-12">
                 <div className="flex items-center">
                     <div className="w-10 h-10 mr-5 p-2 flex-shrink-0 bg-white rounded-sm">
-                      <img src="../../public/soporte.png" 
+                      <img src="/soporte.png" 
                         alt="Imagen de sorporte" 
                         draggable="false"
                         onContextMenu={(e) => e.preventDefault()}
@@ -120,7 +120,7 @@ export const VerProducto = () => {
 
                 <div className="flex mt-2 items-center">
                     <div className="w-10 flex items-center justify-center h-10 mr-5 p-2 flex-shrink-0 bg-white rounded-sm">
-                      <img src="../../public/cobertura.png" alt="Imagen ECO" 
+                      <img src="/cobertura.png" alt="Imagen ECO" 
                         draggable="false"
                         onContextMenu={(e) => e.preventDefault()}
                         loading="lazy"
@@ -152,7 +152,7 @@ export const VerProducto = () => {
         <Link 
             className="md:ml-9 lg:ml-48 ml-5 text-xs md:text-base lg:text-base flex items-center font-montserrat font-medium uppercase group"
             onClick={(e) => handleBack(e)}
-        ><img src="../../public/Volver.png" alt="" 
+        ><img src="/Volver.png" alt="" 
             className="mr-2 transition-transform duration-300 transform group-hover:-translate-x-1"
             style={{ width: "14px", height: "12px" }}
             draggable="false"

@@ -9,7 +9,7 @@ export const Modal = ({ isVisible, onClose, adClass }) => {
     >
       <div className="flex flex-col items-center font-montserrat text-sm">
         <p>Por favor, revisa tu correo.<br /> Gracias por tu atención.</p>
-        <img src="../../public/msg.png" alt="Mensaje" className="mt-3"
+        <img src="/msg.png" alt="Mensaje" className="mt-3"
         loading="lazy"/>
 
         <button onClick={onClose} className="mt-4 transition duration-300 text-[#cfcfcf] font-light hover:text-[#8f8f8f]">

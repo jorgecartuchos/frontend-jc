@@ -5,7 +5,7 @@ export const respuestasFormulario = (
 ) => {
   if (response?.status === 200) {
     setMensaje({ message: response.data.msg, status: 200 });
-    setIsModalVisible(true);
+    setTimeout(() => setIsModalVisible(true), 500);
     setTimeout(() => setIsModalVisible(false), 15000);
   } else if (response?.status === 400) {
     setMensaje({ message: response.data.error, status: 400 });

@@ -5,7 +5,7 @@ export const SetAlerta = ({message, status}) => {
             (<div 
                 className="font-montserrat place-self-center text-xs text-center flex items-center mt-3  font-medium"
                 >{message}<div className="w-6 h-6 ml-3 flex justify-center items-center rounded-full border-2 border-[#56d872]">
-                <img src="../../public/chulo.png" alt="" className="w-4 h-3"/>
+                <img src="/chulo.png" alt="" className="w-4 h-3"/>
                 </div> 
             </div>)
         }

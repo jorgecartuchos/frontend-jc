@@ -21,13 +21,13 @@ export const Nosotros = () => {
          {/* <div className="grid grid-cols-1 mt-14 md:grid-cols-2 lg:grid-cols-2 w-11/12 md:w-2/3 lg:w-1/2 gap-4">
           <div className="w-full h-auto">
               <ImagenZoom 
-                  src="../../public/imagen-nosotros-2.webp" 
+                  src="/imagen-nosotros-2.webp" 
                   alt="Jorge Lópéz trabajando en los toners"
               />
           </div>
           <div className="w-full h-auto">
               <ImagenZoom 
-                  src="../../public/imagen-nosotros-1.webp" 
+                  src="/imagen-nosotros-1.webp" 
                   alt="Jorge Lópéz trabajando en los toners"
               />
           </div>
