@@ -62,7 +62,7 @@ export const InfoGrafia = () => {
 
         <div className="flex-col lg:pt-0 md:py-5 flex pt-5 pb-6 lg:py-0">
           <div className="w-14 h-14 bg-[#f2f2f2] p-2.5 rounded-full mx-auto">
-            <img src="../../public/devolucion.jpg" className="rounded-l-md w-[36px] h-[36px]" alt="Imagen de devolición" 
+            <img src="/devolucion.jpg" className="rounded-l-md w-[36px] h-[36px]" alt="Imagen de devolición" 
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
               loading="lazy"
