@@ -44,7 +44,7 @@ useEffect(() => {
                 onClick={() =>handleTienda()}
               >
                 <div className="absolute left-2 top-2 flex rounded-sm w-40 h-12 bg-white border-2 border-[#f2f2f2] font-montserrat uppercase font-medium text-sm items-center justify-center">Tienda
-                <img src="./Volver.png" alt=""
+                <img src="/Volver.png" alt=""
                 className="ml-2"
                   style={{transform: "rotate(230deg)", width:"13px", height: "13px"}}
                   draggable="false"
@@ -65,7 +65,7 @@ useEffect(() => {
 
     <InfoGrafia />
 
-    {/* <p className="font-montserrat text-sm text-[#757575] mx-auto comunicado-tienda text-justify mt-11 max-w-[620px]">En nuestra tienda, encontrarás una selección de los toners más populares del mercado. Si buscas un toner específico que no está en nuestra lista, no dudes en ponerte en contacto con nosotros. Estamos aquí para ayudarte a encontrar lo que necesitas. <Link to="/contactanos" className="duration-300 hover:text-[#000000] hover:font-medium transition-all">Contáctanos aquí.</Link></p> */}
+    <p className="font-montserrat text-sm text-[#757575] mx-auto comunicado-tienda text-justify mt-11 max-w-[620px]">En nuestra tienda, encontrarás una selección de los toners más populares del mercado. Si buscas un toner específico que no está en nuestra lista, no dudes en ponerte en contacto con nosotros. Estamos aquí para ayudarte a encontrar lo que necesitas. <Link to="/contactanos" className="duration-300 hover:text-[#000000] hover:font-medium transition-all">Contáctanos aquí.</Link></p>
 
     {/* <div className="w-full flex items-center h-12 mt-12 font-medium text-lg tracking-wider uppercase font-montserrat bg-[#000000] text-[#ffffff] overflow-hidden">
       <div className="whitespace-nowrap animate-marquee">

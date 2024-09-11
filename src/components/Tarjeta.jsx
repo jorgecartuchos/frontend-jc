@@ -51,7 +51,7 @@ export const Tarjeta = ({product}) => {
           aria-label={`Toner láser de la marca ${marca}, referencia ${nombre}`}
         >
           <div className="w-full h-60 flex justify-center items-center rounded-sm bg-[#ffffff] mb-2">
-            <img src={`../${imagen.portada}`} className="w-[247px] h-[238px]" alt="Imagen portada del producto"
+            <img src={`/${imagen.portada}`} className="w-[247px] h-[238px]" alt="Imagen portada del producto"
             title={nombre} />
           </div>
         </Link>
@@ -70,13 +70,13 @@ export const Tarjeta = ({product}) => {
         onClick={()=> handleTransfer(id)}
         >
           {isInCart ? (
-            <img src="../../public/carrito-tarjeta-agregado.png" alt="imagen del carrito"
+            <img src="/carrito-tarjeta-agregado.png" alt="imagen del carrito"
             className="flex-shrink-0 w-[18px] h-[17px] opacity-95"
             title="Agregado al carrito"
             loading="lazy"
             />
           ) : (
-            <img src="../../public/carrito-tarjeta.png" alt="imagen del carrito"
+            <img src="/carrito-tarjeta.png" alt="imagen del carrito"
             className="flex-shrink-0 w-[18px] h-[17px]"
             title="Agregar al carrito"
             loading="lazy"

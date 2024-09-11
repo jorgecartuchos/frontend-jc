@@ -5,7 +5,7 @@ export const InfoGrafia = () => {
       
         <div className="flex-col flex pt-0 px-5 md:py-0 lg:py-0">
           <div className="w-14 h-14 p-2.5 bg-[#f2f2f2] rounded-full mx-auto">
-            <img src="../../public/seguridad.jpg" alt="Imagen de seguridad" 
+            <img src="/seguridad.jpg" alt="Imagen de seguridad" 
             draggable="false"
             onContextMenu={(e) => e.preventDefault()}
             loading="lazy"
@@ -21,7 +21,7 @@ export const InfoGrafia = () => {
 
         <div className="flex-col flex pt-0 px-5 md:py-0 lg:py-0">
           <div className="w-14 h-14 flex items-center justify-center bg-[#f2f2f2] p-2 rounded-full mx-auto">
-            <img src="../../public/cobertura.jpg" alt="Imagen ECO" 
+            <img src="/cobertura.jpg" alt="Imagen ECO" 
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
               loading="lazy"
@@ -45,7 +45,7 @@ export const InfoGrafia = () => {
             
         <div className="flex-col lg:pt-0 md:py-5 flex pt-5 pb-6 lg:py-0">
           <div className="w-14 h-14 p-2 bg-[#f2f2f2] rounded-full mx-auto">
-            <img src="../../public/soporte.jpg" className="rounded-full w-[40px] h-[40.7px]" alt="Imagen de soporte" 
+            <img src="/soporte.jpg" className="rounded-full w-[40px] h-[40.7px]" alt="Imagen de soporte" 
               draggable="false"
               onContextMenu={(e) => e.preventDefault()}
               loading="lazy"

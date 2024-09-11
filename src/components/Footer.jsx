@@ -48,14 +48,14 @@ export const Footer = () => {
               <a href="https://www.facebook.com/profile.php?id=100067410135870" 
               target="_blank"
                 className="bg-[#3a3a3a] w-8 h-8 relative rounded-full mr-4 border border-[#d6d6d6]">
-                  <img src="../../public/facebook.png" alt="Logo de Facebook" className="absolute right-[0.46rem] top-[0.22rem] w-[16px] rounded-md" 
+                  <img src="/facebook.png" alt="Logo de Facebook" className="absolute right-[0.46rem] top-[0.22rem] w-[16px] rounded-md" 
                   loading="lazy"/>
                 </a>
               <a href="https://wa.me/573205682187?text=Hola%20Jorge%20Cartuchos%2C%20me%20interesa%20un%20cartucho"
                 className="bg-[#3a3a3a] w-8 h-8 relative rounded-full mr-2 border border-[#d6d6d6]"
                 target="_blank"
                 >
-                  <img src="../../public/whatsapp.png" alt="logo de Whatsapp" className="absolute right-[0.285rem] top-[0.28rem] w-[21px] rounded-md" 
+                  <img src="/whatsapp.png" alt="logo de Whatsapp" className="absolute right-[0.285rem] top-[0.28rem] w-[21px] rounded-md" 
                   loading="lazy"/>
 
                 </a>

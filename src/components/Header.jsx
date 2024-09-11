@@ -406,7 +406,7 @@ export const Header = () => {
             <div className="flex mx-auto relative place-content-center w-full max-w-md min-w-[220px] lg:max-w-xs" 
               ref={containerRef}
             >
-              <img src="../../public/Lupa.png" 
+              <img src="/Lupa.png" 
                 alt="Lupa de busqueda" 
                 className="relative cursor-pointer top-1 -right-8  w-5 h-5" 
                 onClick={handleNavigation}
@@ -528,7 +528,7 @@ export const Header = () => {
                 </div>
               </div>
 
-              <img src="../../public/Carrito.png" className="h-[23.4px]" alt="Icono del carrito" 
+              <img src="/Carrito.png" className="h-[23.4px]" alt="Icono del carrito" 
                 style={{ width: "25px" }}
                 draggable="false"
                 onContextMenu={(e) => e.preventDefault()}
@@ -582,12 +582,15 @@ export const Header = () => {
                           {productosCarrito.map(item => (
                           
                           <div key={item.id}
-                          className={`grid grid-cols-2 min-w-[271px] min-h-[173px] max-h-[245px] width-producto h-auto p-1 rounded-sm text-left transition-colors duration-1000 ${productosEnviados.some(p => p.id === item.id) ? 'bg-[#eaf3ff] border-[1px] border-[#c2dcff]' : infoForm.activarCarrito ? 'border border-[#b4ffc4] bg-[#f8fff9]' : 'border-0 bg-[#f5f5f5]'}`}>
+                          className={`grid grid-cols-2 min-w-[271px] min-h-[173px] max-h-[255px] width-producto h-auto p-1 rounded-sm text-left transition-colors duration-1000 ${productosEnviados.some(p => p.id === item.id) ? 'bg-[#eaf3ff] border-[1px] border-[#c2dcff]' : infoForm.activarCarrito ? 'border border-[#b4ffc4] bg-[#f8fff9]' : 'border-0 bg-[#f5f5f5]'}`}>
 
                             <Link 
                               to={`/producto/${item.id}/${item.nombre}`}
-                              className="flex items-centerbg-[#f2f2f2] rounded-sm w-full h-full" >
-                                <img src={`../${item.imagen?.portada}`} alt="Imagen del producto en el carrito" />
+                              className="flex items-centerbg-[#f2f2f2] rounded-sm w-full h-full overflow-hidden" >
+                                <img src={`/${item.imagen?.portada}`}
+                                alt="Imagen del producto en el carrito" 
+                                className="w-ful h-full object-cover"
+                                />
                               </Link>
 
                             <div className="relative flex flex-col h-full pb-6 px-4">
@@ -628,7 +631,7 @@ export const Header = () => {
                           onClick={handleRealizarPedido}
                         >
                           <img 
-                            src="../../public/Volver-blanco.png"
+                            src="/Volver-blanco.png"
                             alt="Icono Cerrar pedido" 
                             className={`mr-2 transition-transform rotate-[-45deg] transform ${realizarPedido ? 'left-24 rotate-[134deg] group-hover:-translate-x-1' : 'hidden'}`}
                             style={{ width: "10px", height: "10px" }}
@@ -638,7 +641,7 @@ export const Header = () => {
                             />
                           {realizarPedido ? 'Cerrar Pedido' : 'Realizar Pedido'} 
                           <img 
-                            src="../../public/Volver-blanco.png"
+                            src="/Volver-blanco.png"
                             alt="Icono Realizar pedido" 
                             className={`ml-2 transition-transform rotate-[-45deg] transform ${realizarPedido ? 'hidden' : 'right-24 group-hover:translate-x-1'}`}
                             style={{ width: "10px", height: "10px" }}
@@ -720,7 +723,7 @@ export const Header = () => {
                     <div 
                       className="flex w-full mb-10 mt-auto lg:hidden md:flex bottom-8 left-5 md:left-10 cursor-pointer items-center font-montserrat font-medium uppercase text-xs"
                       onClick={handleRealizarPedido}
-                      ><img src="../../public/Volver.png" alt="Icono de volver" className="mr-2" style={{ width: "14px", height: "12px" }} loading="lazy"/>Volver
+                      ><img src="/Volver.png" alt="Icono de volver" className="mr-2" style={{ width: "14px", height: "12px" }} loading="lazy"/>Volver
                     </div>
 
                 </div>

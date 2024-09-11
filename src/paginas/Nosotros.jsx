@@ -40,19 +40,19 @@ export const Nosotros = () => {
 
               {window.innerWidth > 1024 && (
                 <ImagenZoom 
-                    src="../../public/imagen-nosotros-2-lg.webp" 
+                    src="/imagen-nosotros-2-lg.webp" 
                     alt="Jorge Lópéz trabajando en los toners"
                 />
               )}
               {window.innerWidth < 1023 && window.innerWidth > 768 && (
                 <ImagenZoom 
-                    src="../../public/imagen-nosotros-2-md.webp" 
+                    src="/imagen-nosotros-2-md.webp" 
                     alt="Jorge Lópéz trabajando en los toners"
                 />
               )}
               {window.innerWidth < 767 && (
                 <ImagenZoom 
-                    src="../../public/imagen-nosotros-2-sm.webp" 
+                    src="/imagen-nosotros-2-sm.webp" 
                     alt="Jorge Lópéz trabajando en los toners"
                 />
               )}
