@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /private/
 Allow: /
-Sitemap: https://www.tusitio.com/sitemap.xml
+Sitemap: https://frontend-jc.vercel.app/sitemap.xml

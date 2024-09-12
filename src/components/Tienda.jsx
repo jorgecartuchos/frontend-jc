@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, Suspense, lazy } from "react"
 
 import { useInicio } from "../hooks/useInicio";
-// import { Carruseles } from "./Carruseles";
+import { debounce } from "../helpers";
 
 const Carruseles = lazy(() => import('../components/Carruseles'))
 
@@ -14,62 +14,75 @@ export const Tienda = () => {
     setActiveButton(nameButton);
     scrollTiendaFunction();  
   };
-
-    const [isFixed, setIsFixed] = useState(false);
-
+  
+  const [isFixed, setIsFixed] = useState(false);
+  
   const [navHeight, setNavHeight] = useState(0);
   const [navTopStyle, setNavTopStyle] = useState(59)
   const navRef = useRef(null);
   const navTopRef = useRef(0);
 
   const handleScroll = () => {
-    if (window.scrollY >= navTopRef.current) {
-      setIsFixed(true);
+    const currentScrollY = window.scrollY;
+    
+    if (currentScrollY >= navTopRef.current) {
+      setIsFixed(true);  // Solo cambiar si no está ya fijo
     } else {
-      setIsFixed(false);
+      setIsFixed(false);  // Solo cambiar si no está ya en false
     }
   };
-
-    useEffect(() => {
-        const nav = navRef.current;
-    
-        const updateNavTopRef = () => {
-    
-          if(window.innerWidth >= 1920){
-            navTopRef.current = nav.offsetTop - 50;
-            setNavTopStyle(49);
-          } else if(window.innerWidth >= 810){
-            navTopRef.current = nav.offsetTop - 50;
-            setNavTopStyle(49);
-          } else {
-            navTopRef.current = nav.offsetTop - 60;
-            setNavTopStyle(56);
-          }
-        };
-    
-        updateNavTopRef();
-        const handleResize = () => {
-          updateNavTopRef();
-        }
-    
-        const navTotalHeight = nav.offsetHeight + 20;
-        setNavHeight(navTotalHeight); 
-    
-        const handleScrollSave = () => {
-          sessionStorage.setItem('scrollPosition', window.scrollY);
-        };
-        
-        window.addEventListener('scroll', handleScrollSave);
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('resize', handleResize);
-    
-        return () => {
-          window.removeEventListener('scroll', handleScroll);
-          window.removeEventListener('scroll', handleScrollSave);
-          window.removeEventListener('resize', handleResize)
-        };
-      }, []);
-
+  
+  useEffect(() => {
+    const nav = navRef.current;
+  
+    // Recuperar el valor de navTopRef desde sessionStorage si ya existe
+    const storedNavTopRef = sessionStorage.getItem('navTopRef');
+  
+    // Definir la función updateNavTopRef fuera para que esté disponible globalmente en el useEffect
+    const updateNavTopRef = () => {
+      if (window.innerWidth >= 1920) {
+        navTopRef.current = nav.offsetTop - 50;
+        setNavTopStyle(49);
+      } else if (window.innerWidth >= 810) {
+        navTopRef.current = nav.offsetTop - 50;
+        setNavTopStyle(49);
+      } else {
+        navTopRef.current = nav.offsetTop - 60;
+        setNavTopStyle(56);
+      }
+  
+      if (navTopRef.current !== -1) {
+        sessionStorage.setItem('navTopRef', navTopRef.current);
+      }
+    };
+  
+    if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 1000 && parseInt(storedNavTopRef, 10) !== -1) {
+      navTopRef.current = parseInt(storedNavTopRef, 10);
+    } else {
+      updateNavTopRef();
+    }
+  
+    const handleResize = debounce(() => {
+        updateNavTopRef();  // Ahora esta función está definida correctamente aquí
+    }, 100);
+  
+    const handleScrollSave = debounce(() => {
+      sessionStorage.setItem('scrollPosition', window.scrollY);
+    }, 100);
+  
+    const navTotalHeight = nav.offsetHeight + 20;
+    setNavHeight(navTotalHeight);
+  
+    window.addEventListener('scroll', handleScrollSave);
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
+  
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', handleScrollSave);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className="mt-20 mb-28" ref={tiendaRef} >
 

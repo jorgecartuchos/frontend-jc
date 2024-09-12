@@ -36,16 +36,18 @@ export const VerProducto = () => {
     e.preventDefault();
     
     const scrollPosition = sessionStorage.getItem('scrollPosition');
-
-    navigate('/');
-
-    if(scrollPosition){
-        requestAnimationFrame(() => {
-            window.scrollTo(0, parseInt(scrollPosition, 10));
-            sessionStorage.removeItem('scrollPosition');
-        }, 0);
-    }
     
+    navigate('/');
+  
+    if (scrollPosition) {
+      requestAnimationFrame(() => {
+    
+        setTimeout(() => {
+          window.scrollTo(0, parseInt(scrollPosition, 10));
+          sessionStorage.removeItem('scrollPosition');
+        }, );
+      });
+    }
   };
 
   useEffect(() => {

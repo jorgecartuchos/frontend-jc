@@ -692,11 +692,11 @@ export const Header = () => {
                     }
 
                     <form
-                      className={`bg-[#f7f7f7] mb-6 z-10 flex-col lg:w-1/2 w-full max-w-96 md:max-w-96 md:min-w-96 lg:min-w-96 ${camposLlenos && !correoEnviado ? 'mt-10 md:mt-16 lg:mt-16' : 'mt-1 md:mt-6 lg:mt-7'}`}
+                      className={`bg-[#f7f7f7] mb-6 z-10 flex-col lg:w-1/2 w-full max-w-96 md:max-w-96 md:min-w-96 lg:min-w-96 ${camposLlenos && !correoEnviado && !isLoading ? 'mt-10 md:mt-16 lg:mt-16' : 'mt-1 md:mt-6 lg:mt-7'}`}
                       onSubmit={(e) => onSubmitForm(e)}
                     >
                       <label className="block ml-4 font-montserrat uppercase text-sm font-medium mb-2">Nombre</label>
-                      <input type="text" name="name" autoComplete="name" placeholder="Escribe tu nombre" className="placeholder:font-montserrat placeholder:text-[#b9b9b9] border bg-[#e8ffed] border-[#b4ffc4] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5" 
+                      <input type="text" autoComplete="name" placeholder="Escribe tu nombre" className="placeholder:font-montserrat placeholder:text-[#b9b9b9] border bg-[#e8ffed] border-[#b4ffc4] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5" 
                       name="nombre"
                       value={infoForm.nombre}
                       onChange={handleChangeForm}
@@ -717,7 +717,7 @@ export const Header = () => {
                       />
 
                       <label className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Mensaje</label>
-                      <textarea name="" id="" placeholder="Escribe el mensaje" className="placeholder:pt-1 placeholder:font-montserrat border bg-[#e8ffed] border-[#b4ffc4] placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 min-h-24"
+                      <textarea id="" placeholder="Escribe el mensaje" className="placeholder:pt-1 placeholder:font-montserrat border bg-[#e8ffed] border-[#b4ffc4] placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 min-h-24"
                       name="mensaje"
                       value={infoForm.mensaje}
                       onChange={handleChangeForm}

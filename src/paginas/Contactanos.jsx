@@ -112,7 +112,7 @@ export const Contactanos = () => {
         )
         }
 
-        <form className={`flex-col w-full md:w-1/2 lg:w-1/2 place-self-center px-2 md:min-w-96 lg:min-w-96 transition-colors ${camposLlenos && !correoEnviado ? 'mt-10' : 'mt-1'}`}
+        <form className={`flex-col w-full md:w-1/2 lg:w-1/2 place-self-center px-2 md:min-w-96 lg:min-w-96 transition-colors ${camposLlenos && !correoEnviado && !isLoading ? 'mt-10' : 'mt-1'}`}
           onSubmit={handleEnviar}
         >
           <label className="block pl-4 text-left font-montserrat uppercase text-sm font-medium mb-2">Nombre</label>
