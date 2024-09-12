@@ -26,19 +26,17 @@ export const Tienda = () => {
     const currentScrollY = window.scrollY;
     
     if (currentScrollY >= navTopRef.current) {
-      setIsFixed(true);  // Solo cambiar si no está ya fijo
+      setIsFixed(true);  
     } else {
-      setIsFixed(false);  // Solo cambiar si no está ya en false
+      setIsFixed(false); 
     }
   };
   
   useEffect(() => {
     const nav = navRef.current;
   
-    // Recuperar el valor de navTopRef desde sessionStorage si ya existe
     const storedNavTopRef = sessionStorage.getItem('navTopRef');
   
-    // Definir la función updateNavTopRef fuera para que esté disponible globalmente en el useEffect
     const updateNavTopRef = () => {
       if (window.innerWidth >= 1920) {
         navTopRef.current = nav.offsetTop - 50;
@@ -63,7 +61,7 @@ export const Tienda = () => {
     }
   
     const handleResize = debounce(() => {
-        updateNavTopRef();  // Ahora esta función está definida correctamente aquí
+        updateNavTopRef(); 
     }, 100);
   
     const handleScrollSave = debounce(() => {
