@@ -16,6 +16,7 @@ export const Header = () => {
   const [correoEnviado, setCorreoEnviado] = useState(false);
   const [mensaje, setMensaje] = useState({message: '', status: null});
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -225,8 +226,10 @@ export const Header = () => {
 
     if(camposValidos(infoForm)){
       setCamposLlenos(true);
+      setIsLoading(true);
       try {
         const response = await sentContact(infoForm);
+        setIsLoading(false);
         respuestasFormulario(response, setMensaje, setIsModalVisible);
         
       } catch (error) {
@@ -677,13 +680,18 @@ export const Header = () => {
                     {!camposLlenos &&
                       <p className="font-montserrat text-xs text-center text-[#cf2e2e] mt-3 mb-2 font-medium">*Todos los espacios son necesarios</p>
                     }
-                  
+
+                    { isLoading && (
+                      <SetAlerta message={"Espera un momento, por favor"} status="esperar"/>
+                    )
+                    }
+
                     { correoEnviado && (
                       <SetAlerta message={mensaje.message} status={mensaje.status}/>
                     )
                     }
 
-                    <form action="" 
+                    <form
                       className={`bg-[#f7f7f7] mb-6 z-10 flex-col lg:w-1/2 w-full max-w-96 md:max-w-96 md:min-w-96 lg:min-w-96 ${camposLlenos && !correoEnviado ? 'mt-10 md:mt-16 lg:mt-16' : 'mt-1 md:mt-6 lg:mt-7'}`}
                       onSubmit={(e) => onSubmitForm(e)}
                     >
@@ -715,9 +723,9 @@ export const Header = () => {
                       onChange={handleChangeForm}
                       ></textarea>
 
-                      <input type="submit" className="block mt-4 rounded-sm bg-[#dfdfdf] transition-colors duration-500 font-montserrat font-medium text-sm px-10 py-2 cursor-pointer hover:bg-[#56d872] hover:text-white"
-                        value="Enviar"
-                      />
+                      <button type="submit" className="block mt-4 rounded-sm bg-[#dfdfdf] transition-colors duration-500 font-montserrat font-medium text-sm px-10 py-2 cursor-pointer hover:bg-[#56d872] hover:text-white"
+                      disabled={isLoading}
+                      >{isLoading ? 'Enviando' : 'Enviar'}</button>
                     </form>
 
                     <div 

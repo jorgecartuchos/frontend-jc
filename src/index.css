@@ -18,6 +18,7 @@
     background-color: #8a8a8a;
   }
 }
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -130,6 +131,21 @@ nav.fixed {
 
 .form {
   width: 700px;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  border-top: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 4px solid #000000;
+  border-left: 4px solid #000000;
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  animation: spin 1s linear infinite;
 }
 @media (min-width: 1590px){
   .toner1{

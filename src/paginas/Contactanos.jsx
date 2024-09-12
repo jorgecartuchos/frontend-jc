@@ -10,6 +10,7 @@ export const Contactanos = () => {
   const [correoEnviado, setCorreoEnviado] = useState(false);
   const [mensaje, setMensaje] = useState({message: '', status: null});
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const { setInfoForm, infoForm, sentContact, totalProductosCarrito } = useInicio();
 
@@ -24,8 +25,10 @@ export const Contactanos = () => {
 
     if(camposValidos(infoForm)){
       setCamposLlenos(true);
+      setIsLoading(true);
       try {
         const response = await sentContact(infoForm);
+        setIsLoading(false);
         respuestasFormulario(response, setMensaje, setIsModalVisible);
         
       } catch (error) {
@@ -98,17 +101,22 @@ export const Contactanos = () => {
         {!camposLlenos &&
           <p className="font-montserrat text-xs text-center text-[#cf2e2e] mt-3 mb-2 font-medium">*Todos los espacios son necesarios</p>
         }
+
+        { isLoading && (
+          <SetAlerta message={"Espera un momento, por favor"} status="esperar"/>
+        )
+        }
        
         { correoEnviado && (
           <SetAlerta message={mensaje.message} status={mensaje.status}/>
         )
         }
 
-        <form action="" className={`flex-col w-full md:w-1/2 lg:w-1/2 place-self-center px-2 md:min-w-96 lg:min-w-96 transition-colors ${camposLlenos && !correoEnviado ? 'mt-10' : 'mt-1'}`}
+        <form className={`flex-col w-full md:w-1/2 lg:w-1/2 place-self-center px-2 md:min-w-96 lg:min-w-96 transition-colors ${camposLlenos && !correoEnviado ? 'mt-10' : 'mt-1'}`}
           onSubmit={handleEnviar}
         >
           <label className="block pl-4 text-left font-montserrat uppercase text-sm font-medium mb-2">Nombre</label>
-          <input type="text" name="name" autoComplete="name" placeholder="Escribe tu nombre" className={`placeholder:font-montserrat placeholder:text-[#dbdbdb] border placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full  py-1.5 px-5 duration-300 ${infoForm.activarCarrito ? 'bg-[#e8ffed] border-[#b4ffc4]' : 'bg-white border-[#dcdcdc]'}`} 
+          <input type="text" autoComplete="name" placeholder="Escribe tu nombre" className={`placeholder:font-montserrat placeholder:text-[#dbdbdb] border placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full  py-1.5 px-5 duration-300 ${infoForm.activarCarrito ? 'bg-[#e8ffed] border-[#b4ffc4]' : 'bg-white border-[#dcdcdc]'}`} 
           name="nombre"
           value={infoForm.nombre}
           onChange={handleChange}
@@ -135,9 +143,9 @@ export const Contactanos = () => {
           onChange={handleChange}
           ></textarea>
 
-          <input type="submit" className={`block mt-4 rounded-sm bg-white duration-500 font-montserrat font-medium text-sm px-10 py-2 cursor-pointer ${infoForm.activarCarrito ? 'hover:bg-[#56d872] hover:text-white' : 'hover:bg-black hover:text-white'}`}
-          value="Enviar"
-          />
+          <button type="submit" className={`block mt-4 rounded-sm bg-white duration-500 font-montserrat font-medium text-sm px-10 py-2 cursor-pointer ${infoForm.activarCarrito ? 'hover:bg-[#56d872] hover:text-white' : 'hover:bg-black hover:text-white'}`}
+          disabled={isLoading}
+          >{isLoading ? 'Enviando' : 'Enviar'}</button>
         </form>
       </div>
     </>
