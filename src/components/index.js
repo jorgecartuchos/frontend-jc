@@ -1,6 +1,6 @@
 export * from "./Tarjeta";
 export * from "./ListadoMarca";
-export * from "./setAlerta";
+export * from "./SetAlerta";
 export * from "./Modal";
 export * from "./ImagenesPortada";
 export * from "./InfoGrafia";
@@ -10,3 +10,4 @@ export * from "./ImgGarantia";
 export * from "./Footer";
 export * from "./Carruseles";
 export * from "./ImagenZoom";
+export * from "./ModalPregunta";

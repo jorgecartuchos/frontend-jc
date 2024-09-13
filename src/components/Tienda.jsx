@@ -38,20 +38,22 @@ export const Tienda = () => {
     const storedNavTopRef = sessionStorage.getItem('navTopRef');
   
     const updateNavTopRef = () => {
-      if (window.innerWidth >= 1920) {
-        navTopRef.current = nav.offsetTop - 50;
-        setNavTopStyle(49);
-      } else if (window.innerWidth >= 810) {
-        navTopRef.current = nav.offsetTop - 50;
-        setNavTopStyle(49);
-      } else {
-        navTopRef.current = nav.offsetTop - 60;
-        setNavTopStyle(56);
-      }
-  
-      if (navTopRef.current !== -1) {
-        sessionStorage.setItem('navTopRef', navTopRef.current);
-      }
+      setTimeout(() => {
+        if (window.innerWidth >= 1920) {
+          navTopRef.current = nav.offsetTop - 50;
+          setNavTopStyle(49);
+        } else if (window.innerWidth >= 810) {
+          navTopRef.current = nav.offsetTop - 50;
+          setNavTopStyle(49);
+        } else {
+          navTopRef.current = nav.offsetTop - 60;
+          setNavTopStyle(56);
+        }
+    
+        if (navTopRef.current !== -1) {
+          sessionStorage.setItem('navTopRef', navTopRef.current);
+        }
+      }, 100);
     };
   
     if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 1000 && parseInt(storedNavTopRef, 10) !== -1) {

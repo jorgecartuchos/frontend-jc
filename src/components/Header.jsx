@@ -2,8 +2,8 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 import { useInicio } from "../hooks/useInicio";
-import { Modal, SetAlerta } from "./";
-import { camposValidos, respuestasFormulario } from "../helpers/";
+import { ModalPregunta, SetAlerta } from "./";
+import { camposValidosWhatsApp } from "../helpers/";
 
 export const Header = () => {
 
@@ -14,7 +14,6 @@ export const Header = () => {
   const [classColor, setClassColor] = useState(false);
   const [camposLlenos, setCamposLlenos] = useState(true);
   const [correoEnviado, setCorreoEnviado] = useState(false);
-  const [mensaje, setMensaje] = useState({message: '', status: null});
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -221,23 +220,26 @@ export const Header = () => {
     }
   };
 
-  const onSubmitForm = async (e) => {
+  const [alturaForm, setAlturaForm] = useState('mt-1 md:mt-6 lg:mt-7');
+
+  const onSubmitForm = (e) => {
     e.preventDefault();
 
-    if(camposValidos(infoForm)){
+    if(camposValidosWhatsApp(infoForm)){
       setCamposLlenos(true);
       setIsLoading(true);
-      try {
-        const response = await sentContact(infoForm);
+      setAlturaForm('mt-10 md:mt-16 lg:mt-16')
+      setTimeout(() => {
+        setCorreoEnviado(true);
+        setAlturaForm('mt-1 md:mt-6 lg:mt-7');
+      }, 100); 
+     
+      setTimeout(() => {
+        sentContact(infoForm);
         setIsLoading(false);
-        respuestasFormulario(response, setMensaje, setIsModalVisible);
-        
-      } catch (error) {
-        console.log(error);
-        setMensaje({ message: "Error desconocido. Intenta más tarde", status: "Desconocido" });
-      }
+        setTimeout(() => {setIsModalVisible(true)}, 500);
+      }, 1000); 
       
-      setCorreoEnviado(true);
       resetForm();
     } else{ 
       setCamposLlenos(false);
@@ -254,6 +256,7 @@ export const Header = () => {
     });
     setTimeout(() => {
     setCorreoEnviado(false);
+    setAlturaForm('');
     }, 5000);
   };
   
@@ -585,7 +588,7 @@ export const Header = () => {
                           {productosCarrito.map(item => (
                           
                           <div key={item.id}
-                          className={`grid grid-cols-2 min-w-[271px] min-h-[173px] max-h-[255px] width-producto h-auto p-1 rounded-sm text-left transition-colors duration-1000 ${productosEnviados.some(p => p.id === item.id) ? 'bg-[#eaf3ff] border-[1px] border-[#c2dcff]' : infoForm.activarCarrito ? 'border border-[#b4ffc4] bg-[#f8fff9]' : 'border-0 bg-[#f5f5f5]'}`}>
+                          className={`grid grid-cols-2 min-w-[271px] min-h-[173px] max-h-[255px] width-producto h-auto p-1 rounded-sm text-left transition-all duration-1000 ${productosEnviados.some(p => p.id === item.id) ? 'bg-[#eaf3ff] border-[1px] border-[#c2dcff]' : infoForm.activarCarrito ? 'border border-[#b4ffc4] bg-[#f8fff9]' : 'border-0 bg-[#f5f5f5]'}`}>
 
                             <Link 
                               to={`/producto/${item.id}/${item.nombre}`}
@@ -660,7 +663,7 @@ export const Header = () => {
                 <div className="bg-[#f7f7f7] custom-scrollbar relative form lg:min-w-min md:min-w-full h-auto pt-8 md:pt-14 lg:pt-32 pb-10 flex flex-col items-center px-2 md:px-10 lg:px-36 overflow-y-auto"
                 >
                   { isModalVisible && 
-                      <Modal isVisible={isModalVisible} onClose={handleCloseModal} adClass="modal-contactanos modal-header"/>
+                      <ModalPregunta isVisible={isModalVisible} onClose={handleCloseModal} adClass="modal-contactanos modal-header"/>
                   }
 
                   <button
@@ -669,7 +672,7 @@ export const Header = () => {
                         &times;
                   </button>
 
-                    <p className="font-montserrat w-auto tracking-tight uppercase text-center text-3xl font-medium">Realizar Pedido</p>
+                    <p className="font-montserrat w-auto tracking-tight text-center text-3xl font-medium leading-7">REALIZAR PEDIDO <br/><span className="text-xl">por WhatsApp</span></p>
 
                     <p className="font-montserrat md:w-96 lg:w-full text-justify text-sm font-normal text-[#a4a4a4] mt-4">*Los productos añadidos al carrito serán incluidos en tu pedido.</p>
                     <div className="flex lg:w-full h-auto md:w-96">
@@ -678,41 +681,29 @@ export const Header = () => {
                     </div>
                     
                     {!camposLlenos &&
-                      <p className="font-montserrat text-xs text-center text-[#cf2e2e] mt-3 mb-2 font-medium">*Todos los espacios son necesarios</p>
-                    }
-
-                    { isLoading && (
-                      <SetAlerta message={"Espera un momento, por favor"} status="esperar"/>
-                    )
+                      <p className="font-montserrat text-xs text-center text-[#cf2e2e] mt-4 mb-2 font-medium">*Todos los espacios son necesarios</p>
                     }
 
                     { correoEnviado && (
-                      <SetAlerta message={mensaje.message} status={mensaje.status}/>
+                      <SetAlerta message="Revisa WhatsApp para confirmar" status="WhatsApp"/>
                     )
                     }
 
                     <form
-                      className={`bg-[#f7f7f7] mb-6 z-10 flex-col lg:w-1/2 w-full max-w-96 md:max-w-96 md:min-w-96 lg:min-w-96 ${camposLlenos && !correoEnviado && !isLoading ? 'mt-10 md:mt-16 lg:mt-16' : 'mt-1 md:mt-6 lg:mt-7'}`}
+                      className={`bg-[#f7f7f7] mb-6 z-10 flex-col lg:w-1/2 w-full max-w-96 md:max-w-96 md:min-w-96 lg:min-w-96 ${camposLlenos && !correoEnviado && !isLoading ? 'mt-10 md:mt-16 lg:mt-16' : alturaForm}`}
                       onSubmit={(e) => onSubmitForm(e)}
                     >
-                      <label className="block ml-4 font-montserrat uppercase text-sm font-medium mb-2">Nombre</label>
-                      <input type="text" autoComplete="name" placeholder="Escribe tu nombre" className="placeholder:font-montserrat placeholder:text-[#b9b9b9] border bg-[#e8ffed] border-[#b4ffc4] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5" 
-                      name="nombre"
-                      value={infoForm.nombre}
-                      onChange={handleChangeForm}
-                      />
-
-                      <label className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Correo Electrónico</label>
-                      <input type="email" placeholder="Escribe tu correo electrónico" className="placeholder:font-montserrat border placeholder:text-[#b9b9b9] bg-[#e8ffed] border-[#b4ffc4] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5" 
-                      name="correo"
-                      value={infoForm.correo}
-                      onChange={handleChangeForm}
-                      />
-
-                      <label className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Asunto</label>
-                      <input type="text" placeholder="Escribe el asunto" className="placeholder:font-montserrat border placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 bg-[#e8ffed] border-[#b4ffc4]" 
+                      <label className="block ml-4 font-montserrat uppercase text-sm font-medium mb-2">Asunto</label>
+                      <input type="text" placeholder="Escribe el asunto" className="placeholder:font-montserrat placeholder:text-[#b9b9b9] border bg-[#e8ffed] border-[#b4ffc4] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5" 
                       name="asunto"
                       value={infoForm.asunto}
+                      onChange={handleChangeForm}
+                      />
+
+                      <label className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Nombre</label>
+                      <input type="text" autoComplete="name" placeholder="Escribe tu nombre" className="placeholder:font-montserrat border placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 bg-[#e8ffed] border-[#b4ffc4]" 
+                      name="nombre"
+                      value={infoForm.nombre}
                       onChange={handleChangeForm}
                       />
 

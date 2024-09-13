@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import { useInicio } from "../hooks/useInicio";
 import { SetAlerta, Modal } from "../components/";
-import { camposValidos, respuestasFormulario } from "../helpers";
+import { camposValidosCorreo, respuestasFormulario } from "../helpers";
 
 export const Contactanos = () => {
 
@@ -23,7 +23,7 @@ export const Contactanos = () => {
   const handleEnviar = async (e) => {
     e.preventDefault();
 
-    if(camposValidos(infoForm)){
+    if(camposValidosCorreo(infoForm)){
       setCamposLlenos(true);
       setIsLoading(true);
       try {

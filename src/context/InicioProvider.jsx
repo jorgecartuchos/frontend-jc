@@ -13,6 +13,8 @@ export const InicioProvider = ({children}) => {
   const [toggleBurger, setToggleBurger] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [realizarPedido, setRealizarPedido] = useState(false);
+  const [msgConfirmado, setMsgConfirmado] = useState(false);
+
 
   const isRemovingRef = useRef(false);
 
@@ -127,56 +129,86 @@ export const InicioProvider = ({children}) => {
     }
 
     const sentContact = async (datos) => {
-      if(!datos.activarCarrito){
-        const empaquetadoParaBackFalse = {
-          nombre: datos.nombre,
-          correo: datos.correo,
-          asunto: datos.asunto,
-          mensaje: datos.mensaje,
-          activarCarrito: false
-        }
-        try {
-          const data = await clienteAxios.post("/toners/contactanos", empaquetadoParaBackFalse);
-           return data;
-        } catch (error) {
-          return error;
-        }
+      if(datos.correo === ""){
 
-      } else {
+        // const numero = '573205682187';
+        const numero = '573209501210';
+        let mensaje = 
+        `Asunto: ${encodeURIComponent(datos.asunto)}%0A` +
+        `Nombre: ${encodeURIComponent(datos.nombre)}%0A` +
+        `Mensaje: ${encodeURIComponent(datos.mensaje)}%0A%0A` +
+        `Productos solicitados:%0A`;
 
-        
-        const carritoSinImagenes = productosCarrito.map(producto => ({id: producto.id, nombre: producto.nombre, info: producto.info}));
-        
-        
-        const empaquetadoParaBackTrue = {
-          nombre: datos.nombre,
-          correo: datos.correo,
-          asunto: datos.asunto,
-          mensaje: datos.mensaje,
-          activarCarrito: true,
-          carrito: carritoSinImagenes,
-        };
-        try {
-          const data = await clienteAxios.post("/toners/contactanos", empaquetadoParaBackTrue);
+        productosCarrito.forEach((producto) => {
+          mensaje += ` 📦  ${encodeURIComponent(producto.nombre)}%0A`;
+        });
+        const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numero}&text=${mensaje}`;
 
-          const productosEnviadosCompletos = allProducts.filter(producto =>
-            carritoSinImagenes.some(item => item.id === producto.id)
-          );
+        window.open(urlWhatsApp, '_blank');
 
+        if(msgConfirmado){
           const ttl = 7 * 24 * 60 * 60 * 1000;
           const now = new Date();
 
           const item = {
-            value: productosEnviadosCompletos,
+            value: productosCarrito,
             expiry: now.getTime() + ttl,
           };
 
           localStorage.setItem('productosEnviados', JSON.stringify(item));
-          setProductosEnviados(productosEnviadosCompletos);
+          setProductosEnviados(productosCarrito);
+        }
 
-          return data;
-        } catch (error) {
-          return error;        
+        
+            return;
+      } else {
+        if(!datos.activarCarrito){
+          const empaquetadoParaBackFalse = {
+            nombre: datos.nombre,
+            correo: datos.correo,
+            asunto: datos.asunto,
+            mensaje: datos.mensaje,
+            activarCarrito: false
+          }
+          try {
+            const data = await clienteAxios.post("/toners/contactanos", empaquetadoParaBackFalse);
+             return data;
+          } catch (error) {
+            return error;
+          }
+  
+        } else {
+  
+          
+          const carritoSinImagenes = productosCarrito.map(producto => ({id: producto.id, nombre: producto.nombre, info: producto.info}));
+          
+          
+          const empaquetadoParaBackTrue = {
+            nombre: datos.nombre,
+            correo: datos.correo,
+            asunto: datos.asunto,
+            mensaje: datos.mensaje,
+            activarCarrito: true,
+            carrito: carritoSinImagenes,
+          };
+          try {
+            const data = await clienteAxios.post("/toners/contactanos", empaquetadoParaBackTrue);
+  
+            const ttl = 7 * 24 * 60 * 60 * 1000;
+            const now = new Date();
+  
+            const item = {
+              value: productosCarrito,
+              expiry: now.getTime() + ttl,
+            };
+  
+            localStorage.setItem('productosEnviados', JSON.stringify(item));
+            setProductosEnviados(productosCarrito);
+  
+            return data;
+          } catch (error) {
+            return error;        
+          }
         }
       }
     };
@@ -208,6 +240,8 @@ export const InicioProvider = ({children}) => {
         setRealizarPedido,
         isRemovingRef,
         productosEnviados,
+        setMsgConfirmado,
+        setProductosEnviados,
     }}>{children}</InicioContext.Provider>
   )
 }
