@@ -57,8 +57,6 @@ export const SetAlerta = ({message, status}) => {
                 </div> 
             </div>)
         }
-
-
     </>
   )
 }

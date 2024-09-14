@@ -1,6 +1,5 @@
 export * from "./Tarjeta";
 export * from "./ListadoMarca";
-export * from "./SetAlerta";
 export * from "./Modal";
 export * from "./ImagenesPortada";
 export * from "./InfoGrafia";
@@ -11,3 +10,4 @@ export * from "./Footer";
 export * from "./Carruseles";
 export * from "./ImagenZoom";
 export * from "./ModalPregunta";
+export { default as SetAlerta } from "./SetAlerta";
