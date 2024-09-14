@@ -1,4 +1,4 @@
-export const SetAlerta = ({message, status}) => {
+export const setAlerta = ({message, status}) => {
     return (
     <>
         { status === "esperar" &&
