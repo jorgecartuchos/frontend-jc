@@ -2,7 +2,8 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 import { useInicio } from "../hooks/useInicio";
-import { ModalPregunta, SetAlerta } from "./components/";
+import { ModalPregunta, SetAlerta } from "./";
+
 
 import { camposValidosWhatsApp } from "../helpers/";
 
