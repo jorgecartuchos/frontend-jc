@@ -10,4 +10,4 @@ export * from "./Footer";
 export * from "./Carruseles";
 export * from "./ImagenZoom";
 export * from "./ModalPregunta";
-export { default as SetAlerta } from "./SetAlerta";
+export * from "./SetAlerta";
