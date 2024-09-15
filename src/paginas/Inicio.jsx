@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { ImagenesPortada, InfoGrafia, Tienda, ImgGarantia } from "../components/"
 import { useInicio } from "../hooks/useInicio";
 import { Link, useLocation } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
+
 
 export const Inicio = () => {
 
@@ -20,6 +22,25 @@ useEffect(() => {
 
   return (
     <>
+    <Helmet>
+      <title>Toners Láser y Atención Personalizada en Bogotá - Jorge Cartuchos</title>
+      <meta name="description" content="En Jorge Cartuchos, ofrecemos toners láser de alta calidad con garantía de 30 días y precios competitivos. Explora nuestra tienda, contacta fácilmente por WhatsApp, y envía productos del carrito para recibir atención personalizada en Bogotá. Confía en nosotros para una solución confiable y cobertura local." />
+      <meta name="keywords" content="Jorge Cartuchos, toners láser Bogotá, toners de alta calidad, venta de toners Bogotá, toners con garantía, atención personalizada WhatsApp, comunicación eficiente, productos del carrito WhatsApp, soporte Jorge Cartuchos, toners para empresas, toners para hospitales, cobertura Bogotá" />
+      
+      <meta property="og:title" content="Toners Láser y Atención Personalizada en Bogotá - Jorge Cartuchos" />
+      <meta property="og:description" content="En Jorge Cartuchos, ofrecemos toners láser de alta calidad con garantía de 30 días y precios competitivos. Explora nuestra tienda, contacta fácilmente por WhatsApp, y envía productos del carrito para recibir atención personalizada en Bogotá. Confía en nosotros para una solución confiable y cobertura local." />
+      <meta property="og:type" content="website" />
+
+      <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0"/>
+      <meta property="og:url" content="https://frontend-jc.vercel.app/"/>
+
+      <meta name="twitter:card" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
+      <meta name="twitter:title" content="Toners Láser y Atención Personalizada en Bogotá - Jorge Cartuchos" />
+      <meta name="twitter:description" content="En Jorge Cartuchos, ofrecemos toners láser de alta calidad con garantía de 30 días y precios competitivos. Explora nuestra tienda, contacta fácilmente por WhatsApp, y envía productos del carrito para recibir atención personalizada en Bogotá. Confía en nosotros para una solución confiable y cobertura local." />
+      <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
+      <meta name="twitter:url" content="https://frontend-jc.vercel.app/" />
+    </Helmet> 
+
     <div className="w-full block md:mt-3 pt-[74px] md:pt-[62px] sm:pt-[74px] logo-hidden bg-[#ffffff] py-4">
       <p to="/"
         className="flex-grow  leading-3 text-center font-montserrat font-medium uppercase tracking-tight"

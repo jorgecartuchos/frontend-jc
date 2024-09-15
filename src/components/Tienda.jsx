@@ -50,13 +50,13 @@ export const Tienda = () => {
           setNavTopStyle(56);
         }
     
-        if (navTopRef.current !== -1) {
+        if (navTopRef.current !== -1 || navTopRef.current !== -4) {
           sessionStorage.setItem('navTopRef', navTopRef.current);
         }
       }, 100);
     };
   
-    if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 1000 && parseInt(storedNavTopRef, 10) !== -1) {
+    if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 1000 && parseInt(storedNavTopRef, 10) !== -1 && parseInt(storedNavTopRef, 10) !== -4) {
       navTopRef.current = parseInt(storedNavTopRef, 10);
     } else {
       updateNavTopRef();

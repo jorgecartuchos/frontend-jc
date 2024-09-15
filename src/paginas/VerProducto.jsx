@@ -1,12 +1,13 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Helmet } from 'react-helmet-async';
 
 import { ListadoMarca } from "../components/";
 import { useInicio } from "../hooks/useInicio";
 
 export const VerProducto = () => {
     
-  const { id } = useParams();
+  const { id, name } = useParams();
   const navigate = useNavigate();
 
   const [addCart, setAddCart] = useState(false);
@@ -45,7 +46,7 @@ export const VerProducto = () => {
         setTimeout(() => {
           window.scrollTo(0, parseInt(scrollPosition, 10));
           sessionStorage.removeItem('scrollPosition');
-        }, );
+        },0);
       });
     }
   };
@@ -66,7 +67,28 @@ export const VerProducto = () => {
 
   return (
     <>
-    
+    <Helmet>
+      <title>{`${marca} - Tienda Jorge Cartuchos`}</title>
+      <meta name="description" content={`Compra ${nombre} al mejor precio en Jorge Cartuchos`}/>
+      <meta name="keywords" content={`${nombre}, toner, ${marca}, impresoras`}/>
+
+      <meta property="og:title" content={`${nombre} - Toners de Alta Calidad en Bogotá | Jorge Cartuchos`} />
+      <meta property="og:description" content={`Compra ${nombre} en Jorge Cartuchos. Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`} />
+      <meta property="og:type" content="website" />
+      
+      <meta property="og:type" content="product"/>
+
+      <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
+      <meta property="og:url" content={`https://frontend-jc.vercel.app/producto/${id}/${name}`}/>
+
+      <meta name="twitter:card" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
+      <meta name="twitter:title" content={`${nombre} - Toners de Alta Calidad en Bogotá | Jorge Cartuchos`} />
+      <meta name="twitter:description" content={`Compra ${nombre} en Jorge Cartuchos. Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`} />
+      <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
+      <meta name="twitter:url" content={`https://frontend-jc.vercel.app/producto/${id}/${name}`} />
+
+    </Helmet>    
+
     <Link 
         className="absolute mt-2 md:mt-3 flex lg:hidden md:flex left-4 cursor-pointer items-center font-montserrat font-medium uppercase text-xs"
         style={{ top: "72px" }}
@@ -150,7 +172,6 @@ export const VerProducto = () => {
       <p className="font-montserrat mt-6  uppercase tracking-tight font-medium text-center text-xl">{marca}</p>
       {<ListadoMarca data={solo}/>}
       
-        
         <Link 
             className="md:ml-9 lg:ml-48 ml-5 text-xs md:text-base lg:text-base flex items-center font-montserrat font-medium uppercase group"
             onClick={(e) => handleBack(e)}

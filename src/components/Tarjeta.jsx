@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-
 import { useInicio } from "../hooks/useInicio";
 import { Link } from "react-router-dom";
+
+import { slugify } from "../helpers";
 
 export const Tarjeta = ({product}) => {
 
@@ -37,7 +38,7 @@ export const Tarjeta = ({product}) => {
   return (
     <>
     
-    <div className="w-64 mx-auto shadow-lg h-80 rounded-sm bg-[#ffffff] px-1 py-1 relative">
+    <div className="min-w-56 max-w-64  mx-auto shadow-lg h-80 rounded-sm bg-[#ffffff] px-1 py-1 relative">
 
         { window.innerWidth < 621 && 
           <div
@@ -47,20 +48,20 @@ export const Tarjeta = ({product}) => {
           </div>
         }
         
-        <Link to={`/producto/${id}/${nombre}`}
+        <Link to={`/producto/${id}/${slugify(nombre)}`}
           aria-label={`Toner láser de la marca ${marca}, referencia ${nombre}`}
         >
-          <div className="w-full h-60 flex justify-center items-center rounded-sm bg-[#ffffff] mb-2">
-            <img src={`/${imagen.portada}`} className="w-[247px] h-[238px]" alt="Imagen portada del producto"
+          <div className="w-full overflow-hidden h-60 flex justify-center items-center rounded-sm bg-[#ffffff] mb-2">
+            <img src={`/${imagen.portada}`} className="w-[247px] h-[238px] object-cover" alt="Imagen portada del producto"
             title={nombre} />
           </div>
         </Link>
 
-        <Link to={`/producto/${id}/${nombre}`}>
+        <Link to={`/producto/${id}/${slugify(nombre)}`}>
           <div className="w-full h-16 rounded-sm bg-[#f8f8f8] grid grid-cols-[4fr_1fr] overflow-hidden">
               <div>
-                  <p className="font-montserrat font-medium text-base mt-2 ml-3 uppercase tracking-tight">{nombre}</p>
-                  <p className="font-montserrat text-[#424242] text-xs mt-2 ml-3 line-clamp-1" title={info}>{info}</p>
+                  <p className="font-montserrat font-medium text-base mt-1 ml-3 uppercase tracking-tight">{nombre}</p>
+                  <p className="font-montserrat text-[#424242] text-xs mt-[1px] ml-3 line-clamp-2" title={info}>{info}</p>
               </div>
 
           </div>

@@ -1,9 +1,29 @@
+import { Helmet } from "react-helmet-async"
 
 export const Devoluciones = () => {
 
   return (
 
     <>
+        <Helmet>
+            <title>Política de Devoluciones - Jorge Cartuchos</title>
+            <meta name="description" content="Conoce nuestra política de devoluciones en Jorge Cartuchos. Ofrecemos un proceso sencillo para devolver toners láser dentro de los 30 días desde la compra. Asegura tu satisfacción con nuestra garantía y soporte en Bogotá." />
+            <meta name="keywords" content="política de devoluciones, Jorge Cartuchos, devoluciones toners, garantía 30 días, devoluciones Bogotá, soporte cliente, devolución productos toners" />
+
+            <meta property="og:title" content="Política de Devoluciones - Jorge Cartuchos" />
+            <meta property="og:description" content="Conoce nuestra política de devoluciones en Jorge Cartuchos. Ofrecemos un plazo de 30 días para devolver el producto y obtener un reembolso completo. Garantizamos una gestión eficiente y amigable para tu tranquilidad." />
+            <meta property="og:type" content="website" />
+
+            <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1yFOXG_Ay-t0ap2nj4humJB2-2VCfzfM3" />
+            <meta property="og:url" content="https://frontend-jc.vercel.app/devoluciones" />
+
+            <meta name="twitter:card" content="https://drive.google.com/uc?export=view&id=1yFOXG_Ay-t0ap2nj4humJB2-2VCfzfM3" />
+            <meta name="twitter:title" content="Política de Devoluciones - Jorge Cartuchos" />
+            <meta name="twitter:description" content="Conoce nuestra política de devoluciones en Jorge Cartuchos. Ofrecemos un plazo de 30 días para devolver el producto y obtener un reembolso completo. Garantizamos una gestión eficiente y amigable para tu tranquilidad." />
+            <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1yFOXG_Ay-t0ap2nj4humJB2-2VCfzfM3" />
+            <meta name="twitter:url" content="https://frontend-jc.vercel.app/devoluciones" />
+        </Helmet>
+
         <div className="mt-20 padding-contacto mx-2 grid text-center place-items-center lg:pb-36 md:pb-28">
             <h2 className="font-montserrat uppercase text-4xl font-medium">Política de devoluciones</h2>
 

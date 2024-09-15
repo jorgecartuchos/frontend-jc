@@ -3,9 +3,9 @@ import { useInicio } from "../hooks/useInicio"
 import { useNavigate } from "react-router-dom";
 
 export const ModalPregunta = ({ isVisible, onClose, adClass }) => {
-    const navigate = useNavigate();
-
-    const [mensajeFinal, setMensajeFinal] = useState(false);
+  const navigate = useNavigate();
+  
+  const [mensajeFinal, setMensajeFinal] = useState(false);
 
     const  { productosCarrito, setProductosEnviados, setIsCartOpen, setRealizarPedido } = useInicio();
 
@@ -22,7 +22,7 @@ export const ModalPregunta = ({ isVisible, onClose, adClass }) => {
             onClose();
             setRealizarPedido(false);
     }
-
+    
     const handleNoConfirma = () => {
         setMensajeFinal(true);
     }
@@ -35,7 +35,7 @@ export const ModalPregunta = ({ isVisible, onClose, adClass }) => {
 
     return (
       <div
-        className={`${adClass} bottom-20 z-20 right-5 p-4 max-w-72 px-10 py-7 bg-white rounded-sm border border-[#f2f2f2] shadow-md transition-transform transform ${
+        className={`${mensajeFinal ? '!max-h-48' : ''} ${adClass} bottom-20 z-20 right-5 p-4 max-w-72 px-10 py-7 bg-white rounded-sm border border-[#f2f2f2] shadow-md transition-transform transform ${
           isVisible ? 'translate-y-0' : 'translate-y-full'
         } ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
         style={{ transition: 'transform 0.3s ease-out, opacity 0.3s ease-out' }}

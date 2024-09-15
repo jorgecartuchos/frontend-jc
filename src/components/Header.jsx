@@ -190,6 +190,7 @@ export const Header = () => {
         setSugerenciasPrev(false);
         setClassColor(false);
         setIsCartOpen(false);
+        setRealizarPedido(false);
       }, 700);
     } else {
 
@@ -198,6 +199,7 @@ export const Header = () => {
         setClassColor(false);
       }, 500);
       setIsCartOpen(false);
+      setRealizarPedido(false);
     }
   };
 
@@ -662,7 +664,7 @@ export const Header = () => {
                     )}
                 </div>
                 
-                <div className="bg-[#f7f7f7] custom-scrollbar relative form lg:min-w-min md:min-w-full h-auto pt-8 md:pt-14 lg:pt-32 pb-10 flex flex-col items-center px-2 md:px-10 lg:px-36 overflow-y-auto"
+                <div className="bg-[#f7f7f7] custom-scrollbar relative form lg:min-w-min md:min-w-full h-auto pt-3 md:pt-14 lg:pt-32 pb-10 flex flex-col items-center px-2 md:px-10 lg:px-36 overflow-y-auto"
                 >
                   { isModalVisible && 
                       <ModalPregunta isVisible={isModalVisible} onClose={handleCloseModal} adClass="modal-contactanos modal-header"/>
@@ -695,22 +697,22 @@ export const Header = () => {
                       className={`bg-[#f7f7f7] mb-6 z-10 flex-col lg:w-1/2 w-full max-w-96 md:max-w-96 md:min-w-96 lg:min-w-96 ${camposLlenos && !correoEnviado && !isLoading ? 'mt-10 md:mt-16 lg:mt-16' : alturaForm}`}
                       onSubmit={(e) => onSubmitForm(e)}
                     >
-                      <label className="block ml-4 font-montserrat uppercase text-sm font-medium mb-2">Asunto</label>
-                      <input type="text" placeholder="Escribe el asunto" className="placeholder:font-montserrat placeholder:text-[#b9b9b9] border bg-[#e8ffed] border-[#b4ffc4] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5" 
+                      <label htmlFor="asunto" className="block ml-4 font-montserrat uppercase text-sm font-medium mb-2">Asunto</label>
+                      <input id="asunto" type="text" placeholder="Escribe el asunto" className="placeholder:font-montserrat placeholder:text-[#b9b9b9] border bg-[#e8ffed] border-[#b4ffc4] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5" 
                       name="asunto"
                       value={infoForm.asunto}
                       onChange={handleChangeForm}
                       />
 
-                      <label className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Nombre</label>
-                      <input type="text" autoComplete="name" placeholder="Escribe tu nombre" className="placeholder:font-montserrat border placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 bg-[#e8ffed] border-[#b4ffc4]" 
+                      <label htmlFor="nombre" className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Nombre</label>
+                      <input id="nombre" type="text" autoComplete="name" placeholder="Escribe tu nombre" className="placeholder:font-montserrat border placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 bg-[#e8ffed] border-[#b4ffc4]" 
                       name="nombre"
                       value={infoForm.nombre}
                       onChange={handleChangeForm}
                       />
 
-                      <label className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Mensaje</label>
-                      <textarea id="" placeholder="Escribe el mensaje" className="placeholder:pt-1 placeholder:font-montserrat border bg-[#e8ffed] border-[#b4ffc4] placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 min-h-24"
+                      <label htmlFor="mensaje" className="block mt-5 ml-4 font-montserrat uppercase text-sm font-medium mb-2">Mensaje</label>
+                      <textarea id="mensaje" placeholder="Escribe el mensaje" className="placeholder:pt-1 placeholder:font-montserrat border bg-[#e8ffed] border-[#b4ffc4] placeholder:text-[#b9b9b9] placeholder:uppercase placeholder:text-xs rounded-sm font-montserrat w-full py-1.5 px-5 min-h-24"
                       name="mensaje"
                       value={infoForm.mensaje}
                       onChange={handleChangeForm}
