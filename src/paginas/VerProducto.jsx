@@ -69,23 +69,23 @@ export const VerProducto = () => {
     <>
     <Helmet>
       <title>{`${marca} - Tienda Jorge Cartuchos`}</title>
-      <meta name="description" content={`Compra ${nombre} al mejor precio en Jorge Cartuchos`}/>
+      <meta name="description" content={`Compra ${nombre} - ${info} Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`}/>
       <meta name="keywords" content={`${nombre}, toner, ${marca}, impresoras`}/>
 
       <meta property="og:title" content={`${nombre} - Toners de Alta Calidad en Bogotá | Jorge Cartuchos`} />
-      <meta property="og:description" content={`Compra ${nombre} en Jorge Cartuchos. Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`} />
+      <meta property="og:description" content={`Compra ${nombre} - ${info} Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`} />
       <meta property="og:type" content="website" />
       
       <meta property="og:type" content="product"/>
 
       <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
-      <meta property="og:url" content={`https://frontend-jc.vercel.app/producto/${id}/${name}`}/>
+      <meta property="og:url" content={`https://jorgecartuchos.vercel.app/producto/${id}/${name}`}/>
 
       <meta name="twitter:card" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
       <meta name="twitter:title" content={`${nombre} - Toners de Alta Calidad en Bogotá | Jorge Cartuchos`} />
-      <meta name="twitter:description" content={`Compra ${nombre} en Jorge Cartuchos. Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`} />
+      <meta name="twitter:description" content={`Compra ${nombre} - ${info} Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`} />
       <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
-      <meta name="twitter:url" content={`https://frontend-jc.vercel.app/producto/${id}/${name}`} />
+      <meta name="twitter:url" content={`https://jorgecartuchos.vercel.app/producto/${id}/${name}`} />
 
     </Helmet>    
 

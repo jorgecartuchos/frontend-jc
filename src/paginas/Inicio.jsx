@@ -32,13 +32,13 @@ useEffect(() => {
       <meta property="og:type" content="website" />
 
       <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0"/>
-      <meta property="og:url" content="https://frontend-jc.vercel.app/"/>
+      <meta property="og:url" content="https://jorgecartuchos.vercel.app/"/>
 
       <meta name="twitter:card" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
       <meta name="twitter:title" content="Toners Láser y Atención Personalizada en Bogotá - Jorge Cartuchos" />
       <meta name="twitter:description" content="En Jorge Cartuchos, ofrecemos toners láser de alta calidad con garantía de 30 días y precios competitivos. Explora nuestra tienda, contacta fácilmente por WhatsApp, y envía productos del carrito para recibir atención personalizada en Bogotá. Confía en nosotros para una solución confiable y cobertura local." />
       <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
-      <meta name="twitter:url" content="https://frontend-jc.vercel.app/" />
+      <meta name="twitter:url" content="https://jorgecartuchos.vercel.app/" />
     </Helmet> 
 
     <div className="w-full block md:mt-3 pt-[74px] md:pt-[62px] sm:pt-[74px] logo-hidden bg-[#ffffff] py-4">

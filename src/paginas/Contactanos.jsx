@@ -85,13 +85,13 @@ export const Contactanos = () => {
       <meta property="og:type" content="website" />
 
       <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1OdDSlGR9LuJCk2vLs1aPnjAhyoXHbWGh"/>
-      <meta property="og:url" content="https://frontend-jc.vercel.app/contactanos"/>
+      <meta property="og:url" content="https://jorgecartuchos.vercel.app/contactanos"/>
       
       <meta name="twitter:card" content="https://drive.google.com/uc?export=view&id=1OdDSlGR9LuJCk2vLs1aPnjAhyoXHbWGh" />
       <meta name="twitter:title" content="Contáctanos - Jorge Cartuchos" />
       <meta name="twitter:description" content="Ponte en contacto con Jorge Cartuchos para consultas sobre nuestros toners láser. Envía tu solicitud por correo, incluyendo productos del carrito para una atención personalizada y eficiente." />
       <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1OdDSlGR9LuJCk2vLs1aPnjAhyoXHbWGh" />
-      <meta name="twitter:url" content="https://frontend-jc.vercel.app/contactanos" />
+      <meta name="twitter:url" content="https://jorgecartuchos.vercel.app/contactanos" />
 
     </Helmet>
 
@@ -101,7 +101,7 @@ export const Contactanos = () => {
       >
         <h2 className="font-montserrat uppercase text-4xl font-medium tracking-tight">Contáctanos</h2>
 
-        <div className="mt-12 flex flex-col md:inline lg:inline relative mx-3 items-center">
+        <div className="mt-contactanos flex flex-col md:inline lg:inline relative mx-3 items-center">
           <p className={`font-montserrat font-medium transition-colors text-sm text-left mr-auto md:mr-0 lg:mr-0 tracking-wide ${infoForm.activarCarrito ? 'text-[#3f3f3f]' : 'text-[#bebebe]'}`}>Agregar al correo productos del carrito <span className="tracking-tighter">{`( ${totalProductosCarrito} )`}</span></p>
 
           <div

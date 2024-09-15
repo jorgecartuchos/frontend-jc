@@ -414,6 +414,9 @@ nav.fixed {
   .padding-contacto {
     padding-top: 0;
   }
+  .mt-contactanos{
+    margin-top: 3rem;
+  }
 }
 @media (min-width: 1117px){
   .cart-global {
@@ -457,6 +460,9 @@ nav.fixed {
 @media (max-width: 1152px) {
   .padding-contacto {
     padding-top: 3rem;
+  }
+  .mt-contactanos{
+    margin-top: 2rem;
   }
 }
 @media (min-width: 768px){
@@ -502,10 +508,13 @@ nav.fixed {
 }
 @media (max-width: 553px){
   .padding-contacto {
-    margin-top: 2.5rem;
+    margin-top: 1.7rem;
   }
   .padding-nosotros {
     padding-top: 3rem;
+  }
+  .mt-contactanos{
+    margin-top: 0.4rem;
   }
 }
 @media (max-width: 450px){
