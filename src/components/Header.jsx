@@ -664,7 +664,7 @@ export const Header = () => {
                     )}
                 </div>
                 
-                <div className="bg-[#f7f7f7] custom-scrollbar relative form lg:min-w-min md:min-w-full h-auto pt-3 md:pt-14 lg:pt-32 pb-10 flex flex-col items-center px-2 md:px-10 lg:px-36 overflow-y-auto"
+                <div className="bg-[#f7f7f7] custom-scrollbar relative form lg:min-w-min md:min-w-full h-auto pt-2 md:pt-14 lg:pt-32 pb-10 flex flex-col items-center px-2 md:px-10 lg:px-36 overflow-y-auto"
                 >
                   { isModalVisible && 
                       <ModalPregunta isVisible={isModalVisible} onClose={handleCloseModal} adClass="modal-contactanos modal-header"/>
