@@ -131,8 +131,7 @@ export const InicioProvider = ({children}) => {
     const sentContact = async (datos) => {
       if(datos.correo === ""){
 
-        // const numero = '573205682187';
-        const numero = '573209501210';
+        const numero = '573205682187';
         let mensaje = 
         `Asunto: ${encodeURIComponent(datos.asunto)}%0A` +
         `Nombre: ${encodeURIComponent(datos.nombre)}%0A` +
