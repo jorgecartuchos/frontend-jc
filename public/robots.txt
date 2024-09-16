@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /private/
 Allow: /
-Sitemap: https://frontend-jc.vercel.app/sitemap.xml
+Sitemap: https://jorgecartuchos.vercel.app/sitemap.xml
