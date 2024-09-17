@@ -90,7 +90,7 @@ export const Tienda = () => {
         }} 
       />
 
-      <nav className={`mb-11 ${isFixed ? 'fixed left-0 right-0 z-20 border-b border-[#e4e4e4] backdrop-blur bg-[#f2f2f2] bg-opacity-80' : '!flex'}`}
+      <nav className={`mb-11 ${isFixed ? 'fixed left-0 right-0 z-20 border-b border-[#e4e4e4] backdrop-blur bg-[#f2f2f2] bg-opacity-80' : ''}`}
         id="nav"
         ref={navRef}
         style={{top: `${navTopStyle}px`}}
