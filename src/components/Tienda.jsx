@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef, Suspense, lazy } from "react"
+import throttle from 'lodash.throttle';
 
 import { useInicio } from "../hooks/useInicio";
 import { debounce } from "../helpers";
@@ -22,15 +23,15 @@ export const Tienda = () => {
   const navRef = useRef(null);
   const navTopRef = useRef(0);
 
-  const handleScroll = () => {
+  const handleScroll = throttle(() => {
     const currentScrollY = window.scrollY;
     
     if (currentScrollY >= navTopRef.current) {
-      setIsFixed(true);  
+      setIsFixed(true);
     } else {
-      setIsFixed(false); 
+      setIsFixed(false);
     }
-  };
+  }, 100);
   
   useEffect(() => {
     const nav = navRef.current;
@@ -93,7 +94,7 @@ export const Tienda = () => {
         }} 
       />
 
-      <nav className={`mb-11 ${isFixed ? 'fixed left-0 right-0 z-20 border-b border-[#e4e4e4] backdrop-blur bg-[#f2f2f2] bg-opacity-80' : ''}`}
+      <nav className={`mb-11 ${isFixed ? 'fixed left-0 right-0 z-20 border-b border-[#e4e4e4] backdrop-blur bg-[#f2f2f2] bg-opacity-80' : '!flex'}`}
         id="nav"
         ref={navRef}
         style={{top: `${navTopStyle}px`}}
