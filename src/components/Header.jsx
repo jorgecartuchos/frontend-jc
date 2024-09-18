@@ -556,7 +556,7 @@ export const Header = () => {
 
                     <div className="flex w-full h-auto items-center mt-8">
                       <span 
-                        className="ml-11 font-montserrat font-semibold tracking-tight text-xl text-left uppercase"
+                        className="ml-8 font-montserrat font-semibold tracking-tight text-xl text-left uppercase"
                       >Carrito</span>
 
                       <p 

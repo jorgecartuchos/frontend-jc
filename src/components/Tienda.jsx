@@ -7,7 +7,7 @@ const Carruseles = lazy(() => import('../components/Carruseles'))
 
 export const Tienda = () => {
 
-    const { tiendaRef, activeButton, setActiveButton, scrollTiendaFunction } = useInicio();
+    const { tiendaRef, activeButton, setActiveButton, scrollTiendaFunction, setIsFixed, isFixed } = useInicio();
 
   const handleListToners = (e) => {
     const nameButton = e.target.innerHTML;
@@ -18,7 +18,6 @@ export const Tienda = () => {
   const [navHeight, setNavHeight] = useState(null);
   const navRef = useRef(null);
   const navTopRef = useRef(0);
-  const [isFixed, setIsFixed] = useState(false);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;

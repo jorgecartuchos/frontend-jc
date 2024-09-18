@@ -14,6 +14,8 @@ export const InicioProvider = ({children}) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [realizarPedido, setRealizarPedido] = useState(false);
   const [msgConfirmado, setMsgConfirmado] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
+
 
 
   const isRemovingRef = useRef(false);
@@ -63,6 +65,7 @@ export const InicioProvider = ({children}) => {
     }
 
     const scrollTiendaFunction = () => {
+      setIsFixed(false);
       const offset = 95; 
       const elementPosition = tiendaRef.current.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - offset;
@@ -241,6 +244,8 @@ export const InicioProvider = ({children}) => {
         productosEnviados,
         setMsgConfirmado,
         setProductosEnviados,
+        setIsFixed,
+        isFixed
     }}>{children}</InicioContext.Provider>
   )
 }
