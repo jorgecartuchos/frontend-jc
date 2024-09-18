@@ -99,13 +99,14 @@ export const Contactanos = () => {
 
       <div className={`${realizarPedido || isCartOpen ? 'cursor-none' : ''} mt-20 lg:w-[405px] padding-contacto md:w-[405px] lg:mb-36 md:mb-28 mb-28 relative grid grid-cols-1 mx-auto align-self-center h-auto text-center max-w-[405px]`}
       >
-        <h2 className="font-montserrat uppercase text-4xl font-medium tracking-tight">Contáctanos</h2>
+        <h2 className="font-montserrat uppercase text-n-c font-medium tracking-tight">Contáctanos</h2>
 
-        <div className="mt-contactanos flex flex-col md:inline lg:inline relative mx-3 items-center">
-          <p className={`font-montserrat font-medium transition-colors text-sm text-left mr-auto md:mr-0 lg:mr-0 tracking-wide ${infoForm.activarCarrito ? 'text-[#3f3f3f]' : 'text-[#bebebe]'}`}>Agregar al correo productos del carrito <span className="tracking-tighter">{`( ${totalProductosCarrito} )`}</span></p>
+        <div className="relative items-center mt-contactanos grid grid-cols-[10fr_2fr] grid-rows-1 mx-3">
+
+          <p className={`font-montserrat font-medium transition-colors text-sm text-left mr-auto md:mr-0 lg:mr-0 tracking-wid ${infoForm.activarCarrito ? 'text-[#3f3f3f]' : 'text-[#bebebe]'}`}>Agregar al correo productos del  <span className="whitespace-nowrap">{`carrito ( ${totalProductosCarrito} )`}</span></p>
 
           <div
-            className={`mt-4 mb-1 md:my-0 lg:my-0 mr-auto md:mr-0 lg:mr-0 md:absolute lg:absolute md:top-[0.6px] lg:top-[0.6px] md:right-3 lg:right-3 w-10 h-5 flex items-center cursor-pointe rounded-full transition-colors duration-300 ${infoForm.activarCarrito ? "bg-[#56d872]" : "bg-[#a0a0a0]"
+            className={`mt-auto w-10 h-5 items-center rounded-full transition-colors duration-300 ${infoForm.activarCarrito ? "bg-[#56d872]" : "bg-[#a0a0a0]"
             }`}
             onClick={handleToggle}
           >
@@ -115,8 +116,10 @@ export const Contactanos = () => {
               }`}
             ></div>
           </div>
+        </div>
 
-          <p className="mt-3 font-montserrat text-sm text-[#a3a3a3] text-justify">*Al activar el botón, los productos seleccionados en el carrito se incluirán en el correo. No es obligatorio usar esta opción.</p>
+        <div className="mx-3">
+          <p className="mt-3 font-montserrat text-sm text-[#a3a3a3] text-contactos text-justify">*Al activar el botón, los productos seleccionados en el carrito se incluirán en el correo. No es obligatorio usar esta opción.</p>
         </div>
 
         {!camposLlenos &&

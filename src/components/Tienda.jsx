@@ -15,60 +15,56 @@ export const Tienda = () => {
     scrollTiendaFunction();  
   };
   
-  const [isFixed, setIsFixed] = useState(false);
-  
-  const [navHeight, setNavHeight] = useState(0);
-  const [navTopStyle, setNavTopStyle] = useState(59)
+  const [navHeight, setNavHeight] = useState(null);
   const navRef = useRef(null);
   const navTopRef = useRef(0);
+  const [isFixed, setIsFixed] = useState(false);
 
   const handleScroll = () => {
-    requestAnimationFrame(() => {
-      const currentScrollY = window.scrollY;
-      setIsFixed(currentScrollY >= navTopRef.current);
-    });
+    const currentScrollY = window.scrollY;
+    setIsFixed(currentScrollY >= navTopRef.current);
   };
+
   
   useEffect(() => {
     const nav = navRef.current;
   
     const storedNavTopRef = sessionStorage.getItem('navTopRef');
-  
+    const navRect = nav.getBoundingClientRect();
+    
     const updateNavTopRef = () => {
       setTimeout(() => {
-        if (window.innerWidth >= 1920) {
-          navTopRef.current = nav.offsetTop - 50;
-          setNavTopStyle(49);
-        } else if (window.innerWidth >= 810) {
-          navTopRef.current = nav.offsetTop - 50;
-          setNavTopStyle(49);
+        if (window.innerWidth >= 810) {
+          navTopRef.current = navRect.top - 59;
+          setNavHeight(navRect.height + 20);
+
         } else {
-          navTopRef.current = nav.offsetTop - 60;
-          setNavTopStyle(56);
+          navTopRef.current = navRect.top - 60;
+          setNavHeight(navRect.height + 20);
+
         }
-    
-        if (navTopRef.current !== -1 || navTopRef.current !== -4) {
+        
+        if (navTopRef.current >= 1000 && navTopRef.current <= 2000 && ![-1, -4, 1].includes(navTopRef.current)) {
           sessionStorage.setItem('navTopRef', navTopRef.current);
         }
-      }, 100);
+      }, 500);
     };
-  
-    if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 1000 && parseInt(storedNavTopRef, 10) !== -1 && parseInt(storedNavTopRef, 10) !== -4) {
+    
+    if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 1000 && ![-1, -4, 1].includes(parseInt(storedNavTopRef, 10))) {
       navTopRef.current = parseInt(storedNavTopRef, 10);
     } else {
       updateNavTopRef();
     }
-  
+    
     const handleResize = debounce(() => {
         updateNavTopRef(); 
     }, 100);
-  
+
     const handleScrollSave = debounce(() => {
       sessionStorage.setItem('scrollPosition', window.scrollY);
     }, 100);
   
-    const navTotalHeight = nav.offsetHeight + 20;
-    setNavHeight(navTotalHeight);
+    setNavHeight(navRect.height + 20);
   
     window.addEventListener('scroll', handleScrollSave);
     window.addEventListener('scroll', handleScroll);
@@ -86,16 +82,15 @@ export const Tienda = () => {
       <h2 className="font-montserrat tracking-tighter font-medium text-3xl uppercase text-center mb-4">Cartuchos</h2>
 
       <div style={{ 
-        height: isFixed ? navHeight : 0
+        height: isFixed ? `${navHeight}px` : 0
         }} 
       />
 
-      <nav className={`mb-11 ${isFixed ? 'fixed left-0 right-0 z-20 border-b border-[#e4e4e4] backdrop-blur bg-[#f2f2f2] bg-opacity-80' : ''}`}
+      <nav className={`mb-11 ${isFixed ? 'fixed border-b border-[#e4e4e4] backdrop-blur bg-[#f2f2f2] bg-opacity-80' : ''}`}
         id="nav"
         ref={navRef}
-        style={{top: `${navTopStyle}px`}}
       >
-        <ul className="flex-wrap flex md:flex lg:flex pt-5 md:pt-6 lg:pt-6 gap-y-3 justify-center text-xs md:text-sm lg:text-sm space-x-6 md:space-x-8 lg:space-x-8 ">
+        <ul className="flex-wrap flex gap-y-0.5 justify-center text-xs md:text-sm lg:text-sm space-x-6 md:space-x-8 lg:space-x-8">
           <li>
             <button onClick={handleListToners} className={activeButton === 'Todos' ? 'active nav-item2 font-normal uppercase font-montserrat tracking-tight' : 'nav-item2 font-normal text-[#757575] uppercase font-montserrat tracking-tight'}>Todos</button></li>
           <li>

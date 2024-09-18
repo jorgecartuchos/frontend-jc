@@ -49,7 +49,7 @@ const Layout = () => {
 
   return (
     <>
-      <div id="header-top" className="w-full flex-col min-h-screen bg-[#f2f2f2] flex overflow-hidden" >
+      <div id="header-top" className="relative w-full overflow-hidden bg-[#f2f2f2]">
 
         <Header />
         

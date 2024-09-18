@@ -278,7 +278,8 @@ export const Header = () => {
   }
 
   return (
-    <header className="w-full fixed z-20 border-b border-[#f2f2f2] bg-white py-4 grid grid-cols-[1fr_5fr_1fr] columns-lg justify-between items-center">
+    <header className="fixed top-0 left-0 w-full z-20 shadow-border-bottom border-[#f2f2f2] bg-white py-4 grid grid-cols-[1fr_5fr_1fr] columns-lg justify-between items-center">
+
 
           <nav className="hidden lg:flex">
             <ul className="flex pl-28 uppercase font-normal tracking-tight font-montserrat text-sm space-x-14">

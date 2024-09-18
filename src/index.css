@@ -44,11 +44,15 @@
     opacity: 1;
   }
 }
-
+.shadow-border-bottom {
+  box-shadow: 0 1px 0 0 #f2f2f2; /* Ajusta el tamaño del borde aquí */
+}
 .fadeInOut {
   animation: fadeInOut 2s infinite;
 }
-
+.position {
+  position: sticky;
+}
 .montserrat {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
@@ -62,7 +66,7 @@
 }
 nav.fixed {
   position: fixed;
-  top: 0;
+  top: 59px;
   left: 0;
   right: 0;
   z-index: 10;
@@ -89,6 +93,7 @@ nav.fixed {
 .nav-item2 {
   position: relative;
   padding-bottom: 12px;
+  padding-top: 1rem;
 }
 .nav-item2::after {
   content: '';
@@ -412,10 +417,17 @@ nav.fixed {
     position: absolute;
   }
   .padding-contacto {
-    padding-top: 0;
+    padding-top: 5rem;
   }
   .mt-contactanos{
     margin-top: 3rem;
+  }
+  .margin-nosotros {
+    margin-top: 11rem;
+  }
+  .text-n-c{
+    font-size: 2.25rem /* 36px */;
+    line-height: 2.5rem
   }
 }
 @media (min-width: 1117px){
@@ -463,6 +475,13 @@ nav.fixed {
   }
   .mt-contactanos{
     margin-top: 2rem;
+  }
+  .margin-nosotros{
+    margin-top: 8rem;
+  }
+  .text-n-c{
+    font-size: 2.25rem /* 36px */;
+    line-height: 2.5rem
   }
 }
 @media (min-width: 768px){
@@ -515,6 +534,17 @@ nav.fixed {
   }
   .mt-contactanos{
     margin-top: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+  .margin-nosotros{
+    margin-top: 1.5rem;
+  }
+  .text-n-c{
+    font-size: 2rem /* 36px */;
+    line-height: 2.2rem
+  }
+  .text-contactos {
+    text-align: left;
   }
 }
 @media (max-width: 450px){
@@ -522,7 +552,8 @@ nav.fixed {
     margin-top: 61px;
   }
   .nav-item2 {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
+    padding-top: 0.7rem;
   }
   .cart {
     min-width: 100%;

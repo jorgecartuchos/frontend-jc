@@ -78,13 +78,13 @@ export const VerProducto = () => {
       
       <meta property="og:type" content="product"/>
 
-      <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
+      <meta property="og:image" content={`https://jorgecartuchos.vercel.app/${marca}/${imagen.detalle}.webp`} />
       <meta property="og:url" content={`https://jorgecartuchos.vercel.app/producto/${id}/${name}`}/>
 
       <meta name="twitter:card" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
       <meta name="twitter:title" content={`${nombre} - Toners de Alta Calidad en Bogotá | Jorge Cartuchos`} />
       <meta name="twitter:description" content={`Compra ${nombre} - ${info} Ofrecemos toners láser de alta calidad con garantía de 30 días. Encuentra el mejor precio y rendimiento para tu impresora en Bogotá.`} />
-      <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1IYPKiG1jFDqzK_D3TS5jVEiDmaF12DN0" />
+      <meta name="twitter:image" content={`https://jorgecartuchos.vercel.app/${marca}/${imagen.detalle}.webp`} />
       <meta name="twitter:url" content={`https://jorgecartuchos.vercel.app/producto/${id}/${name}`} />
 
     </Helmet>    

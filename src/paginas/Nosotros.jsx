@@ -26,8 +26,8 @@ export const Nosotros = () => {
         <meta name="twitter:url" content="https://jorgecartuchos.vercel.app/nosotros" />
     </Helmet>
 
-      <div className="mt-24 padding-contacto padding-nosotros lg:mt-20 md:mt-16 md:pb-28 pb-16 lg:pb-28 grid text-center place-items-center">
-          <h1 className="font-montserrat uppercase text-4xl font-medium">Acerca de nosotros</h1>
+      <div className="margin-nosotros padding-nosotros md:pb-28 pb-16 lg:pb-28 grid text-center place-items-center">
+          <h1 className="font-montserrat uppercase text-n-c font-medium">Acerca de nosotros</h1>
           <p className="mt-contactanos pt-1 font-montserrat font-normal text-base w-11/12 md:w-2/3 lg:w-1/2 text-justify">En<span className="font-medium"> Jorge Cartuchos,</span> nuestra misión es ofrecer <span className="font-medium"> toners láser de alta calidad a precios competitivos, garantizando la satisfacción total de nuestros clientes.</span> Desde nuestro inicio, nos hemos comprometido a ser líderes en el mercado de Bogotá, construyendo una base sólida respaldada por un equipo especializado y contratos duraderos con empresas y hospitales.
           </p>
           <p className="mt-4 font-montserrat font-normal text-base w-11/12 md:w-2/3 lg:w-1/2 text-justify">Nuestro fundador, <span className="font-medium"> Jorge López,</span> con años de experiencia en el sector, decidió emprender tras haber trabajado exitosamente con importantes clientes como el <span className="font-medium"> Hospital de Tunjuelito y Fontibón en Bogotá, Colombia.</span> Este conocimiento adquirido en el campo ha sido clave para nuestro crecimiento continuo.

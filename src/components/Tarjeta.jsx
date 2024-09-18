@@ -38,7 +38,7 @@ export const Tarjeta = ({product}) => {
   return (
     <>
     
-    <div className="min-w-56 max-w-64  mx-auto shadow-lg h-80 rounded-sm bg-[#ffffff] px-1 py-1 relative">
+    <div className="min-w-56 max-w-64 mx-auto shadow-lg h-80 rounded-sm bg-[#ffffff] px-1 py-1 relative">
 
         { window.innerWidth < 621 && 
           <div
