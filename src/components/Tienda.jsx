@@ -42,14 +42,11 @@ export const Tienda = () => {
           setNavHeight(navRect.height + 20);
 
         }
-        
-        if (navTopRef.current >= 1000 && navTopRef.current <= 2000 && ![-1, -4, 1].includes(navTopRef.current)) {
-          sessionStorage.setItem('navTopRef', navTopRef.current);
-        }
-      }, 500);
+      sessionStorage.setItem('navTopRef', navTopRef.current);
+      }, 300);
     };
     
-    if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 1000 && ![-1, -4, 1].includes(parseInt(storedNavTopRef, 10))) {
+    if (storedNavTopRef && parseInt(storedNavTopRef, 10) >= 800 && ![-1, -4, 1].includes(parseInt(storedNavTopRef, 10))) {
       navTopRef.current = parseInt(storedNavTopRef, 10);
     } else {
       updateNavTopRef();

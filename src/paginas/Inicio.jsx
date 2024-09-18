@@ -10,12 +10,12 @@ export const Inicio = () => {
   const location = useLocation()
 
   const { scrollTiendaFunction, setInfoForm } = useInicio();
-
+  
   const handleTienda = () => {
     scrollTiendaFunction();
   };
   
-useEffect(() => {
+  useEffect(() => {
   setInfoForm((prev) => ({...prev, activarCarrito: false}));
 }, [location.pathname]);
 
