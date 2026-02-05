@@ -28,7 +28,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <link rel="shortcut icon" href="/favicon1.svg" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.png" sizes="32x32" type="image/png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
