@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /private/
+Allow: /
+Sitemap: https://jorgecartuchos.vercel.app/sitemap.xml

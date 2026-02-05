@@ -1,0 +1,33 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+
+import Layout from './layout/Layout';
+import { Devoluciones, Inicio, Nosotros, Blog, Contactanos, VerProducto } from './paginas/';
+
+import { InicioProvider } from './context/InicioProvider';
+
+function App() {
+
+  return (
+    <HelmetProvider>
+      <BrowserRouter>
+        <InicioProvider>
+            <Routes>
+                <Route path='/' element={<Layout />}>
+                <Route index element={<Inicio />}/>
+                <Route path='nosotros' element={<Nosotros />}/>
+                <Route path='blog' element={<Blog />}/>
+                <Route path='contactanos' element={<Contactanos />}/>
+                <Route path='devoluciones' element={<Devoluciones />}/>
+
+                <Route path='/:category/:slugAndId' element={<VerProducto />}/>
+
+                </Route>
+            </Routes>
+        </InicioProvider>
+      </BrowserRouter>
+    </HelmetProvider>
+  )
+}
+
+export default App
